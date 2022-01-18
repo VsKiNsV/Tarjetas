@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    perspective: 600px; 
+}
+
+.tarjetas{
+    width: 20rem;
+    height: 25rem;
+    position: relative;
+    transform-style: preserve-3d; 
+    animation-name: entrada-tarjetas;
+    animation-duration: 2s;
+}
+
+.tarjetas:hover .lado-1{
+    transform: rotateY(360deg);
+}
+
+.tarjetas:hover .lado-2{
+    transform: rotateY(720deg);
+}
+
+[class*="lado"]{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #aaa;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: absolute;
+    top:0;
+    left:0;
+    backface-visibility: hidden;
+    transition: transform 4s;
+}
+
+.lado-1{
+    animation-delay: .3s;
+    background-color: rgb(172, 197, 241);
+}
+
+.lado-2{
+    background-color: rgb(152, 123, 233);
+    transform: rotateY(180deg);
+    animation-delay: .2s;
+}
+
+@keyframes entrada-tarjetas {
+    0%{
+        transform:rotateY(80deg) rotateX(30deg) rotateX(20deg)
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform:rotateY(0)
+    }
+}
+
+
+
+
